@@ -1,0 +1,26 @@
+name: MyFirstProject
+version: 0.1.0.0
+
+ghc-options: -Wall
+
+dependencies:
+  base
+
+library:
+  source-dirs: src/
+  exposed-modules:
+    Lib
+
+executables:
+  run-my-first-project:
+    source-dirs: app/
+    main: Main.hs
+    dependencies:
+      MyFirstProject
+
+tests:
+  MyFirstProject-test:
+    source-dirs: test/
+    main: Spec.hs
+    dependencies:
+      MyFirstProject
