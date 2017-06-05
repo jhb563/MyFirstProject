@@ -14,10 +14,22 @@ library
   ghc-options: -Wall
   exposed-modules:
       Lib
+      Split.LibSplit
   other-modules:
       Paths_MyFirstProject
   build-depends:
       base
+    , split
+  default-language: Haskell2010
+
+executable new-exec
+  main-is: NewExec.hs
+  hs-source-dirs:
+      app/
+  ghc-options: -Wall
+  build-depends:
+      base
+    , MyFirstProject
   default-language: Haskell2010
 
 executable run-my-first-project
@@ -38,5 +50,21 @@ test-suite MyFirstProject-test
   build-depends:
       base
     , MyFirstProject
+  other-modules:
+      NewTest
   ghc-options: -Wall
+  default-language: Haskell2010
+
+test-suite NewTest
+  type: exitcode-stdio-1.0
+  main-is: NewTest.hs
+  hs-source-dirs:
+      test/
+  ghc-options: -Wall
+  build-depends:
+      base
+    , MyFirstProject
+    , tasty-hunit
+  other-modules:
+      Spec
   default-language: Haskell2010

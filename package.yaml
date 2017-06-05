@@ -9,12 +9,21 @@ dependencies:
 library:
   source-dirs: src/
   exposed-modules:
-    Lib
+    - Lib
+    - Split.LibSplit
+  dependencies:
+    - split
 
 executables:
   run-my-first-project:
     source-dirs: app/
     main: Main.hs
+    dependencies:
+      MyFirstProject
+
+  new-exec:
+    source-dirs: app/
+    main: NewExec.hs
     dependencies:
       MyFirstProject
 
@@ -24,3 +33,10 @@ tests:
     main: Spec.hs
     dependencies:
       MyFirstProject
+
+  NewTest:
+    source-dirs: test/
+    dependencies:
+      - MyFirstProject
+      - tasty-hunit
+    main: NewTest.hs
